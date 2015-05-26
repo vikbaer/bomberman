@@ -47,6 +47,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Visual Studio 2013\Projects\ConsoleKeyHookLib\ConsoleKeyHookLib\ConsoleKeyHookLib.csproj">
+      <Project>{1f871ddb-8d98-41c5-aba8-601165c8b0f9}</Project>
+      <Name>ConsoleKeyHookLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
