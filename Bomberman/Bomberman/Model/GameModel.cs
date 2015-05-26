@@ -21,7 +21,6 @@ namespace Bomberman.Model
         private List<List<IConsoleMapElement>> newMap;
         private List<List<IConsoleMapElement>> oldMap;
 
-        //
         private List<Player> players;
 
         public GameModel()
