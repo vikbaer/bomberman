@@ -9,23 +9,33 @@ namespace ConsoleKeyHookLib
 {
     public delegate void KeyPressedHandler();
 
+    public class InvalidArgumentException : SystemException
+    {
+        public InvalidArgumentException(string message) : base(message) { }
+    }
+
     public class ConsoleKeyHook
     {
         public event KeyPressedHandler KeyPressedEvent;
 
-        private List<List<ConsoleKey>> keyMasks;
+        private List<List<ConsoleKey>> validKeys;
         private List<List<ConsoleKey>> allKeysPressed;
         private ConsoleKey[] lastKeyPressed;
         private bool intercept;
 
         private Thread hook;
 
-        public ConsoleKeyHook(List<List<ConsoleKey>> keyMasks, bool intercept)
+        public ConsoleKeyHook(List<List<ConsoleKey>> validKeys, bool intercept)
         {
-            this.keyMasks = keyMasks;
+            if (validKeys == null)
+                throw new NullReferenceException();
+            if (validKeys.Count <= 0)
+                throw new InvalidArgumentException("validKeys.Count must be higher than 0!");
+
+            this.validKeys = validKeys;
             this.allKeysPressed = new List<List<ConsoleKey>>();
-            this.lastKeyPressed = new ConsoleKey[keyMasks.Count];
-            for (int i = 0; i < keyMasks.Count; i++)
+            this.lastKeyPressed = new ConsoleKey[validKeys.Count];
+            for (int i = 0; i < validKeys.Count; i++)
             {
                 this.allKeysPressed.Add(new List<ConsoleKey>());
             }
@@ -48,27 +58,30 @@ namespace ConsoleKeyHookLib
 
         private void hookKeys()
         {
+            bool validKeyPressed;
             ConsoleKeyInfo keyInfo;
             while (true)
             {
+                validKeyPressed = false;
                 if (Console.KeyAvailable)
                 {
                     keyInfo = Console.ReadKey(intercept);
 
-                    for (int i = 0; i < keyMasks.Count; i++)
+                    for (int i = 0; i < validKeys.Count; i++)
                     {
-                        for (int j = 0; j < keyMasks[i].Count; j++)
+                        for (int j = 0; j < validKeys[i].Count; j++)
                         {
-                            if (keyInfo.Key == keyMasks[i][j])
+                            if (keyInfo.Key == validKeys[i][j])
                             {
                                 lastKeyPressed[i] = keyInfo.Key;
                                 allKeysPressed[i].Add(keyInfo.Key);
-
-                                if (KeyPressedEvent != null)
-                                    KeyPressedEvent();
+                                validKeyPressed = true;
                             }
                         }
                     }
+
+                    if (KeyPressedEvent != null && validKeyPressed)
+                        KeyPressedEvent();
                 }
             }
         }
