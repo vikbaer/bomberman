@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\GameElement.cs" />
+    <Compile Include="Model\GameModel.cs" />
     <Compile Include="Model\None.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Point.cs" />
