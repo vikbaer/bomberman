@@ -11,6 +11,7 @@ namespace Bomberman
         static void Main(string[] args)
         {
             Console.WriteLine("it works");
+            Console.WriteLine("test");
         }
     }
 }
