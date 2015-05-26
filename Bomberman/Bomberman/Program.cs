@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ConsoleKeyHookLib;
 using ConsoleMapLoaderLib;
 using Bomberman.Model;
+using System.Diagnostics;
 
 namespace Bomberman
 {
@@ -13,15 +14,12 @@ namespace Bomberman
     {
         static void Main(string[] args)
         {
-            List<IConsoleMapElement> consoleMapElements = new List<IConsoleMapElement>();
-            consoleMapElements.Add(new Wall(ConsoleColor.Black, ConsoleColor.DarkRed, '#', '#', false));
-            consoleMapElements.Add(new Wall(ConsoleColor.Black, ConsoleColor.Red, '+', '#', true));
-            consoleMapElements.Add(new None(ConsoleColor.Black, ConsoleColor.Black, ' ', ' '));
-            ConsoleMapLoader mapLoader = new ConsoleMapLoader("Maps", "cmap", consoleMapElements);
-            DrawMap(mapLoader.LoadMap("map1"));
 
-            Console.ReadLine();
+
+             Console.ReadLine();
         }
+
+
 
         static void DrawMap(List<List<IConsoleMapElement>> map)
         {
