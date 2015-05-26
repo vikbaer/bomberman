@@ -12,6 +12,7 @@ namespace Bomberman
         {
             Console.WriteLine("it works");
             Console.WriteLine("test");
+            Console.WriteLine("as");
         }
     }
 }
