@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace Bomberman.Model
 {
-    public delegate void ModelChangedHandler(List<List<IConsoleMapElement>> map, List<List<IConsoleMapElement>> oldMap);
+    public delegate void ModelChangedHandler(List<List<IConsoleMapElement>> newMap, List<List<IConsoleMapElement>> oldMap);
 
     class GameModel
     {
@@ -43,9 +43,37 @@ namespace Bomberman.Model
             }
         }
 
+        public void Run()
+        {
+            initializeGame();
+
+        }
+
+        public void PerformTick()
+        {
+            if (this.ModelChangedEvent != null)
+                this.ModelChangedEvent(this.newMap, this.oldMap);
+            this.oldMap = CopyList(this.newMap);
+
+        }
+
+        private List<List<IConsoleMapElement>> CopyList(List<List<IConsoleMapElement>> list)
+        {
+            List<List<IConsoleMapElement>> newList = new List<List<IConsoleMapElement>>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                newList.Add(new List<IConsoleMapElement>());
+                for (int j = 0; j < list[i].Count; j++)
+                {
+                    newList[i].Add(list[i][j]);
+                }
+            }
+            return newList;
+        }
+
         private void initializeMap()
         {
-            this.newMap = this.curMap; //oaschloch
+            this.newMap = CopyList(this.curMap); //oaschloch
 
 
             // Nur zum Test
@@ -58,7 +86,7 @@ namespace Bomberman.Model
             players.Add(new Player(ConsoleColor.Black, ConsoleColor.Blue, '1', '1', new Point(1, 1), bindingss));
             this.newMap[players[0].Location.Y][players[0].Location.X] = players[0];
 
-            this.oldMap = this.newMap;
+            this.oldMap = CopyList(this.newMap);
         }
 
 
@@ -67,7 +95,7 @@ namespace Bomberman.Model
             initializeMap();
 
             if (this.ModelChangedEvent != null)
-                this.ModelChangedEvent(this.newMap, null); 
+                this.ModelChangedEvent(this.newMap, null);
         }
 
     }
