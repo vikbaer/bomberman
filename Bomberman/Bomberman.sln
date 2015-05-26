@@ -5,9 +5,9 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bomberman", "Bomberman\Bomberman.csproj", "{E4C4754D-0389-4888-9E2E-1CEFF5306668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleKeyHookLib", "..\..\ConsoleKeyHookLib\ConsoleKeyHookLib\ConsoleKeyHookLib.csproj", "{1F871DDB-8D98-41C5-ABA8-601165C8B0F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleKeyHookLib", "ConsoleKeyHookLib\ConsoleKeyHookLib\ConsoleKeyHookLib.csproj", "{1F871DDB-8D98-41C5-ABA8-601165C8B0F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMapLoaderLib", "..\..\ConsoleMapLoaderLib\ConsoleMapLoaderLib\ConsoleMapLoaderLib.csproj", "{83E17AB1-0E2F-4C45-AE7E-C7E6EC4C7091}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMapLoaderLib", "ConsoleMapLoaderLib\ConsoleMapLoaderLib\ConsoleMapLoaderLib.csproj", "{83E17AB1-0E2F-4C45-AE7E-C7E6EC4C7091}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
