@@ -16,10 +16,11 @@ namespace Bomberman.Model
 
         private List<IConsoleMapElement> consoleMapElements;
         private ConsoleMapLoader mapLoader;
-        private List<List<IConsoleMapElement>> map;
-        private List<List<IConsoleMapElement>> oldMap;
 
         private List<List<IConsoleMapElement>> curMap;
+        private List<List<IConsoleMapElement>> newMap;
+        private List<List<IConsoleMapElement>> oldMap;
+
 
         private List<Player> players;
 
@@ -31,7 +32,7 @@ namespace Bomberman.Model
             this.consoleMapElements.Add(new None(ConsoleColor.Black, ConsoleColor.Black, ' ', ' '));
 
             this.mapLoader = new ConsoleMapLoader("Maps", "cmap", this.consoleMapElements);
-            this.map = new List<List<IConsoleMapElement>>();
+            this.newMap = new List<List<IConsoleMapElement>>();
         }
 
         public void LoadMap(string mapName) //TODO : Exception
@@ -44,7 +45,7 @@ namespace Bomberman.Model
 
         private void initializeMap()
         {
-            this.map = this.curMap; //oaschloch
+            this.newMap = this.curMap; //oaschloch
 
 
             // Nur zum Test
@@ -55,9 +56,9 @@ namespace Bomberman.Model
             bindingss.Add(ConsoleKey.D, KeyBindings.MoveRight);
             this.players = new List<Player>();
             players.Add(new Player(ConsoleColor.Black, ConsoleColor.Blue, '1', '1', new Point(1, 1), bindingss));
-            this.map[players[0].Location.Y][players[0].Location.X] = players[0];
+            this.newMap[players[0].Location.Y][players[0].Location.X] = players[0];
 
-            this.oldMap = this.map;
+            this.oldMap = this.newMap;
         }
 
 
@@ -66,7 +67,7 @@ namespace Bomberman.Model
             initializeMap();
 
             if (this.ModelChangedEvent != null)
-                this.ModelChangedEvent(this.map, this.oldMap);
+                this.ModelChangedEvent(this.newMap, null); 
         }
 
     }
