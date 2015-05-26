@@ -11,6 +11,7 @@ namespace ConsoleMapLoaderLib
     {
         ConsoleColor BackGroundColor { get; set; }
         ConsoleColor ForeGroundColor { get; set; }
+        char ReadSign { get; set; }
         char Sign { get; set; }
     }
     class ConsoleMap
@@ -109,7 +110,7 @@ namespace ConsoleMapLoaderLib
                         check = false;
                         for (int k = 0; k < consoleMapElements.Count; k++)
                         {
-                            if ((line[j] == consoleMapElements[k].Sign))
+                            if ((line[j] == consoleMapElements[k].ReadSign))
                             {
                                 this.map[i].Add(consoleMapElements[k]);
                                 check = true;
