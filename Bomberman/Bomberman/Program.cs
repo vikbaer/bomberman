@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleKeyHookLib;
 
 namespace Bomberman
 {
@@ -15,7 +14,6 @@ namespace Bomberman
             Console.WriteLine("test");
             Console.WriteLine("asa");
 
-            ConsoleKeyHook hook = new ConsoleKeyHook();
         }
     }
 }
