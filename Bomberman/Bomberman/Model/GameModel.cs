@@ -57,7 +57,7 @@ namespace Bomberman.Model
             players.Add(new Player(ConsoleColor.Black, ConsoleColor.Blue, '1', '1', new Point(1, 1), bindingss));
             this.map[players[0].Location.Y][players[0].Location.X] = players[0];
 
-            this.oldMap = this.curMap;
+            this.oldMap = this.map;
         }
 
 
