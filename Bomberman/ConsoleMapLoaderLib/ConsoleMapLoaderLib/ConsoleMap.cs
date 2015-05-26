@@ -9,8 +9,8 @@ namespace ConsoleMapLoaderLib
 {
     public interface IConsoleMapElement
     {
-        ConsoleColor BackGroundColor { get; set; }
-        ConsoleColor ForeGroundColor { get; set; }
+        ConsoleColor BackgroundColor { get; set; }
+        ConsoleColor ForegroundColor { get; set; }
         char ReadSign { get; set; }
         char Sign { get; set; }
     }

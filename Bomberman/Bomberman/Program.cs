@@ -32,8 +32,8 @@ namespace Bomberman
                 for (int j = 0; j < map[i].Count; j++)
                 {
                     Console.SetCursorPosition(j, i);
-                    Console.BackgroundColor = map[i][j].BackGroundColor;
-                    Console.ForegroundColor = map[i][j].ForeGroundColor;
+                    Console.BackgroundColor = map[i][j].BackgroundColor;
+                    Console.ForegroundColor = map[i][j].ForegroundColor;
                     Console.Write(map[i][j].Sign);
                 }
             }

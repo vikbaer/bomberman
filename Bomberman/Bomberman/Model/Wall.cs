@@ -9,8 +9,8 @@ namespace Bomberman.Model
     class Wall : GameElement
     {
         public bool IsDestructable { get; set; }
-        public Wall(ConsoleColor backGroundColor, ConsoleColor foreGroundColor, char readSign, char sign, bool isDestructable)
-            : base(backGroundColor, foreGroundColor, readSign, sign)
+        public Wall(ConsoleColor backgroundColor, ConsoleColor foregroundColor, char readSign, char sign, bool isDestructable)
+            : base(backgroundColor, foregroundColor, readSign, sign)
         {
             this.IsDestructable = isDestructable;
         }

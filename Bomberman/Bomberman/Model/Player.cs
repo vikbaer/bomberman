@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Bomberman.Model
 {
-    class None : GameElement
+    class Player : GameElement
     {
-        public None(ConsoleColor backgroundColor, ConsoleColor foregroundColor, char readSign, char sign)
+        public Point Location { get; set; }
+        public Player(ConsoleColor backgroundColor, ConsoleColor foregroundColor, char readSign, char sign, Point location)
             : base(backgroundColor, foregroundColor, readSign, sign)
         {
-
+            this.Location = location;
         }
     }
 }

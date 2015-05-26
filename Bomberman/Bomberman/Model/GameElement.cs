@@ -9,17 +9,17 @@ namespace Bomberman.Model
 {
     class GameElement : IConsoleMapElement
     {
-        public ConsoleColor BackGroundColor { get; set; }
+        public ConsoleColor BackgroundColor { get; set; }
 
-        public ConsoleColor ForeGroundColor { get; set; }
+        public ConsoleColor ForegroundColor { get; set; }
 
         public char ReadSign { get; set; }
         public char Sign { get; set; }
 
-        public GameElement(ConsoleColor backGroundColor, ConsoleColor foreGroundColor, char readSign, char sign)
+        public GameElement(ConsoleColor backgroundColor, ConsoleColor foregroundColor, char readSign, char sign)
         {
-            this.BackGroundColor = backGroundColor;
-            this.ForeGroundColor = foreGroundColor;
+            this.BackgroundColor = backgroundColor;
+            this.ForegroundColor = foregroundColor;
             this.ReadSign = readSign;
             this.Sign = sign;
         }
